@@ -671,3 +671,34 @@
 .leader_ship_one p {
     color: #ffffff !important;
 }
+
+/* 4. PRELOADER BRANDING */
+.preloader {
+    background: #ffffff !important;
+}
+
+.preloader .preloader_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+}
+
+.preloader .preloader_inner img {
+    height: 70px !important;
+    width: auto !important;
+    animation: preloaderPulse 1.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.55));
+}
+
+@keyframes preloaderPulse {
+    0%, 100% {
+        transform: scale(0.92);
+        opacity: 0.85;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+        filter: drop-shadow(0 0 24px rgba(212, 175, 55, 0.85));
+    }
+}
