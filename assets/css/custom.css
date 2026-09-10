@@ -2,11 +2,19 @@
 @import "https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap";
 :root {
-    --menu-color: #DFDFDF;
-    --menu_red-color: #EF3100;
-    --yellow-color: #0066ff;
-    --blue-color: #4286f6;
+    --menu-color: #FFFFFF;
+    --menu_red-color: #D4AF37;
+    --yellow-color: #D4AF37;
+    --blue-color: #D4AF37;
     --green-color: #09aa2f;
+    --gold-primary: #D4AF37;
+    --gold-secondary: #C59B27;
+    --gold-light: #FFF4B8;
+    --gold-dark: #8C6510;
+    --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #FFF4B8 50%, #C59B27 100%);
+    --gold-glow: 0 0 15px rgba(212, 175, 55, 0.45);
+    --dark-primary: #111111;
+    --dark-secondary: #1C1C1C;
     --menu-font: Preahvihear, sans-serif;
     --title-font: 'Qwitcher Grypen', cursive;
     --poppins: Poppins, sans-serif
@@ -369,5 +377,242 @@
 @media screen and (max-width:1330px) {
     .header_call a {
         display: none;
+    }
+}
+
+/* ==========================================================
+   GROWNOWW LUXURY GOLD & BLACK THEME
+   According to the GN Logo
+   ========================================================== */
+
+/* 1. BRAND LOGO & SHINING COMPANY NAME */
+.navbar-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    gap: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.brand-logo-img {
+    height: 52px !important;
+    width: auto !important;
+    max-height: 54px !important;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 2px 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-brand:hover .brand-logo-img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.brand-company-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    background: linear-gradient(
+        110deg,
+        #9A7B1C 0%,
+        #D4AF37 20%,
+        #FFF4B8 40%,
+        #FFFFFF 50%,
+        #FFF4B8 60%,
+        #D4AF37 80%,
+        #9A7B1C 100%
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldBrandShine 3s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    user-select: none;
+}
+
+@keyframes goldBrandShine {
+    0% {
+        background-position: 250% center;
+    }
+    100% {
+        background-position: -50% center;
+    }
+}
+
+/* Footer Brand */
+.footer_logo a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px;
+    text-decoration: none !important;
+    margin-bottom: 18px;
+}
+
+.brand-logo-img-footer {
+    height: 56px !important;
+    width: auto !important;
+    max-height: 60px !important;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    padding: 3px 6px;
+}
+
+.footer-brand-name {
+    font-size: 28px !important;
+}
+
+/* 2. THEME COLOR OVERRIDES (GOLD & BLACK PALETTE) */
+
+/* Menu bar & active line */
+.menu_section {
+    background-color: #FFFFFF !important;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.main_menu::before {
+    background-color: var(--gold-primary) !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7) !important;
+}
+
+.navbar .navbar-nav a {
+    color: #111111 !important;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.navbar .navbar-nav a:hover,
+.navbar .navbar-nav a.active {
+    color: var(--gold-primary) !important;
+}
+
+/* Header Action Buttons */
+.header_contact a,
+.header_crm a {
+    background: linear-gradient(135deg, #111111 0%, #1F1F1F 100%) !important;
+    color: #FFF2A1 !important;
+    border: 1.5px solid #D4AF37 !important;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 8px 26px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.header_contact a:hover,
+.header_crm a:hover {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFF2A1 50%, #C59B27 100%) !important;
+    color: #111111 !important;
+    border-color: #D4AF37 !important;
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.6) !important;
+    transform: translateY(-2px);
+}
+
+/* Fixed Quote Side Button */
+.fixed_quote {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFF2A1 50%, #C59B27 100%) !important;
+    color: #111111 !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.55) !important;
+}
+
+/* Floating Call Button */
+.floating_call {
+    background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%) !important;
+    color: #111111 !important;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.5) !important;
+}
+
+/* Form & Primary CTA Buttons */
+.crm_section .submit_btn button,
+.modal .submit_btn button,
+.submit_btn button,
+.btn-primary,
+.explore,
+.query_form .submit_btn button {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFF2A1 50%, #C59B27 100%) !important;
+    color: #111111 !important;
+    border: 1px solid #B8860B !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.crm_section .submit_btn button:hover,
+.modal .submit_btn button:hover,
+.submit_btn button:hover,
+.btn-primary:hover,
+.explore:hover,
+.query_form .submit_btn button:hover {
+    background: linear-gradient(135deg, #111111 0%, #222222 100%) !important;
+    color: #FFF2A1 !important;
+    border-color: #D4AF37 !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6) !important;
+    transform: translateY(-2px);
+}
+
+/* What We Do / Service Icon Highlights */
+.what_we_do .card .card_body .icon,
+.service_box:hover,
+.leader_ship .content h2,
+.our_services .service_box .content h5:hover {
+    color: #D4AF37 !important;
+}
+
+/* Footer Highlights */
+.footer_navbar h6,
+.footer-rights {
+    color: #D4AF37 !important;
+}
+
+.footer_social .icon:hover {
+    border-color: #D4AF37 !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.5) !important;
+}
+
+/* Bootstrap Overrides */
+.text-primary {
+    color: #D4AF37 !important;
+}
+
+.bg-primary {
+    background-color: #D4AF37 !important;
+    color: #111111 !important;
+}
+
+.border-primary {
+    border-color: #D4AF37 !important;
+}
+
+/* Mobile Responsiveness for Shining Brand */
+@media (max-width: 768px) {
+    .brand-company-name {
+        font-size: 20px;
+        letter-spacing: 0.3px;
+    }
+    .brand-logo-img {
+        height: 40px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-company-name {
+        font-size: 17px;
+    }
+    .brand-logo-img {
+        height: 34px !important;
     }
 }
