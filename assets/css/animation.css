@@ -1,0 +1,253 @@
+/** Navbar **/
+
+.header_contact a {
+    animation: bg_move 30s infinite;
+}
+
+@keyframes bg_move {
+    0% {
+        background-size: 80% 100%;
+    }
+    50% {
+        background-size: 30% 100%;
+    }
+    100% {
+        background-size: 80% 100%;
+    }
+}
+
+.who_we_are .character img,
+.discovery .img_group .bulp img {
+    animation: floating 3s infinite ease-in-out;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+.discovery .img_group .stars,
+.ux_strategy .img_group .stars {
+    animation: moving 15s infinite ease-in-out;
+}
+
+@keyframes moving {
+    0% {
+        transform: translateX(-20px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+.title_img {
+    animation: rotate 3s infinite ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.result .circle .hand {
+    animation: floating2 3s infinite ease-in-out;
+}
+
+@keyframes floating2 {
+    0% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+.ux_strategy .img_group .smoke {
+    animation: smoke 2s infinite ease-in-out;
+}
+
+@keyframes smoke {
+    0% {
+        transform: rotate(10deg) translateY(4px);
+    }
+    50% {
+        transform: rotate(10deg) translateY(0);
+    }
+    100% {
+        transform: rotate(10deg) translateY(4px);
+    }
+}
+
+.ux_strategy .img_group .bulp .img {
+    animation: move1 4s infinite ease-in-out;
+    animation-delay: var(--i);
+}
+
+@keyframes move1 {
+    0% {
+        transform: rotate(12deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(12deg);
+    }
+}
+
+.build .msg2 {
+    animation: floating3 3s infinite ease-in-out;
+}
+
+@keyframes floating3 {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.build .msg1 {
+    animation: floating4 3s infinite ease-in-out;
+}
+
+@keyframes floating4 {
+    0% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+.build .paper {
+    animation: move2 4s infinite ease-in-out;
+    animation-delay: var(--i);
+    transform-origin: bottom left;
+}
+
+@keyframes move2 {
+    0% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+.build .pencil {
+    animation: shake 3s infinite ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(12px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(12px);
+    }
+}
+
+.build .inside {
+    animation: planet 9s infinite ease-in-out;
+    animation-delay: 1.5s;
+}
+
+@keyframes planet {
+    0% {
+        transform: rotate(30deg) translateX(15px);
+    }
+    50% {
+        transform: rotate(0deg) translateX(0);
+    }
+    100% {
+        transform: rotate(30deg) translateX(15px);
+    }
+}
+
+.launch .rocket {
+    animation: rocket 10s infinite ease-in-out;
+}
+
+@keyframes rocket {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(15px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.our_process .img_group img,
+.our_process .behind_work img,
+.our_process .web_design img,
+.our_process .home_launch img,
+.our_process .testing img {
+    opacity: 0;
+}
+
+.our_process .process1.start .img_group img {
+    animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1) var(--delay);
+    opacity: 1;
+}
+
+.our_process .process2.start .img img {
+    animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1) var(--delay);
+    opacity: 1;
+}
+
+.our_process .process3.start .img img {
+    animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1) var(--delay);
+    opacity: 1;
+}
+
+@keyframes reveal {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,373 @@
+@import "https://fonts.googleapis.com/css2?family=Preahvihear&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap";
+:root {
+    --menu-color: #DFDFDF;
+    --menu_red-color: #EF3100;
+    --yellow-color: #0066ff;
+    --blue-color: #4286f6;
+    --green-color: #09aa2f;
+    --menu-font: Preahvihear, sans-serif;
+    --title-font: 'Qwitcher Grypen', cursive;
+    --poppins: Poppins, sans-serif
+}
+
+.crm_section {
+    padding: 150px 0 70px;
+    background-image: url(../images/crm/crm_banner-01.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.crm_section .submit_btn button,
+.modal .submit_btn button {
+    background-color: var(--yellow-color);
+    border: 1px solid #000;
+    outline: none;
+    padding: 10px 35px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-family: var(--poppins);
+    position: relative;
+    transition: .5s;
+    z-index: 1;
+    overflow: hidden
+}
+
+.crm_section .submit_btn button::before,
+.modal .submit_btn button::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+    transition: transform .4s;
+    transform: scaleX(0);
+    transform-origin: right
+}
+
+.crm_section .submit_btn button:hover::before,
+.modal .submit_btn button:hover:before {
+    transform: scaleX(1);
+    transform-origin: left
+}
+
+.crm_con h5 {
+    margin-bottom: 30px;
+    font-family: var(--poppins);
+    font-weight: 600;
+}
+
+/*.crm_img_con {*/
+
+/*    padding: 20px;*/
+
+/*}*/
+
+.crm_form {
+    padding: 50px;
+    background-color: #F6F6F6;
+    box-shadow: -27px 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    /* margin-right: 50px */
+}
+
+.crm_form h3 {
+    margin-bottom: 30px;
+    font-family: var(--poppins);
+    font-weight: 600;
+}
+
+.crm_features h1 {
+    font-family: var(--poppins);
+    /* color: var(--blue-color); */
+}
+
+.crm_ico_sec img {
+    width: 40px;
+}
+
+.sol_we_do {
+    /* background: url(../images/home/what_we_do/bg.webp); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative
+}
+
+.sol_we_do .medias {
+    display: flex;
+    gap: 20px;
+    align-items: center
+}
+
+.sol_we_do .medias img {
+    width: 60px
+}
+
+.sol_we_do .medias P {
+    line-height: 20px;
+    margin-bottom: 0
+}
+
+.sol_we_do .title {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -6%
+}
+
+.sol_we_do .square {
+    background-color: #E32B00;
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    transform: scaleY(0)
+}
+
+.sol_we_do .title h2 {
+    color: #fff;
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%) rotate(270deg);
+    font-size: 50px;
+    font-weight: 700;
+    font-family: var(--poppins)
+}
+
+.sol_we_do .title span {
+    color: #000
+}
+
+.crm_sol h1 {
+    color: var(--menu_red-color);
+    font-family: var(--poppins);
+}
+
+.crm_red {
+    padding: 10px 20px;
+    border: 2px solid var(--menu_red-color);
+    border-radius: 2rem;
+    position: relative;
+}
+
+.crm_red h6 {
+    margin-bottom: 0px !important;
+}
+
+.crm_red_ball {
+    height: 25px;
+    width: 25px;
+    border-radius: 4rem;
+    background-color: var(--menu_red-color);
+    position: absolute;
+    left: -8px;
+}
+
+.crm_green_ball {
+    height: 25px;
+    width: 25px;
+    border-radius: 4rem;
+    background-color: var(--green-color);
+    position: absolute;
+    left: -8px;
+}
+
+.crm_green {
+    padding: 10px 20px;
+    border: 2px solid var(--green-color);
+    border-radius: 2rem;
+    position: relative;
+}
+
+.crm_green h6 {
+    margin-bottom: 0px !important;
+}
+
+.crm_book_sec {
+    padding: 30px 50px;
+    /* background-image: url(../images/services/service_bg.svg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.crm_book_sec .book_demo_btn {
+    background-image: url(../images/work/list_bg.svg);
+    color: #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+}
+
+.header_crm a {
+    background: url(../images/home/Button.png);
+    background-size: 60% 100%;
+    border-radius: 20px;
+    padding: 7px 25px;
+    margin-right: 20px;
+    font-family: var(--menu-font);
+    color: #000;
+    text-decoration: none
+}
+
+.header_crm a span img {
+    width: 22px;
+    margin-right: 10px;
+    transition: .5s
+}
+
+.header_crm a:hover img {
+    animation: trine 1.5s infinite linear
+}
+
+@keyframes trine {
+    from {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+    20%,
+    32%,
+    44%,
+    56%,
+    68% {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+    23%,
+    35%,
+    47%,
+    59%,
+    71% {
+        transform: rotate3d(0, 0, 1, 15deg)
+    }
+    26%,
+    38%,
+    50%,
+    62%,
+    74% {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+    29%,
+    41%,
+    53%,
+    65%,
+    77% {
+        transform: rotate3d(0, 0, 1, -15deg)
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+}
+
+/* .crm_funnel_h1 {
+    color: var(--green-color);
+} */
+
+.modal_bg {
+    /* background-color: #000; */
+    /* background-color: var(--yellow-color); */
+    background-image: url(../images/home/our_process/bg.png);
+    background-position: center;
+    background-size: 50% 80%;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+.modal_bg h3 {
+    color: var(--yellow-color);
+}
+
+.crm_modal .modal-body {
+    /* background-color: #000; */
+    position: relative;
+}
+
+/* .btn-close {
+    position: absolute;
+    right: -10px;
+    top: -15px;
+} */
+
+.crm_modal_cl {
+    position: absolute;
+    right: -20px;
+    top: -15px;
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    /* padding: 0.25em 0.25em; */
+    padding: 10px 10px 10px 10px;
+    color: #000;
+    border: 0;
+    border-radius: 20rem;
+    background-color: var(--yellow-color);
+    color: #000;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .crm_modal_cl {
+    font-size: 26px;
+} */
+
+.btn-close-bg {
+    background-color: var(--yellow-color);
+    color: #000;
+}
+
+.crm_form_bg .popup_services .right_side .service_contact input[type=text] {
+    width: 100%;
+    height: 100%;
+}
+
+.mob_our_process {
+    background-size: 25%;
+}
+
+@media screen and (max-width:990px) {
+    .smd1 {
+        display: none;
+    }
+    .header_call a {
+        display: none;
+    }
+    .crm_img_con img {
+        height: 300px;
+        width: 300px;
+        object-fit: contain;
+    }
+    .crm_section {
+        padding: 80px 20px;
+    }
+    .crm_form {
+        padding: 25px;
+    }
+    .crm_book_sec {
+        padding: 50px 15px;
+    }
+    .mob_our_process {
+        padding: 10px 0 70px;
+    }
+    .mob_our_process .content p {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width:1330px) {
+    .header_call a {
+        display: none;
+    }
+}
