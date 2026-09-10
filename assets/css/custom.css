@@ -422,30 +422,56 @@
     display: inline-block;
     vertical-align: middle;
     background: linear-gradient(
-        110deg,
-        #9A7B1C 0%,
-        #D4AF37 20%,
-        #FFF4B8 40%,
+        115deg,
+        #C59B27 0%,
+        #D4AF37 22%,
+        #B8860B 38%,
+        #FFFDE0 46%,
         #FFFFFF 50%,
-        #FFF4B8 60%,
-        #D4AF37 80%,
-        #9A7B1C 100%
+        #FFFDE0 54%,
+        #B8860B 62%,
+        #D4AF37 78%,
+        #C59B27 100%
     );
-    background-size: 250% auto;
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: goldBrandShine 3s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    animation: goldBrandShine 1.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s 3 normal forwards;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
     user-select: none;
 }
 
 @keyframes goldBrandShine {
     0% {
-        background-position: 250% center;
+        background-position: 150% center;
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
+    }
+    50% {
+        filter: drop-shadow(0 0 16px rgba(255, 245, 160, 0.95)) drop-shadow(0 0 6px rgba(212, 175, 55, 0.9));
     }
     100% {
-        background-position: -50% center;
+        background-position: -150% center;
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
+    }
+}
+
+.navbar-brand:hover .brand-company-name,
+.footer_logo a:hover .brand-company-name {
+    animation: goldBrandShineHover 1.2s ease-in-out 1 normal forwards;
+}
+
+@keyframes goldBrandShineHover {
+    0% {
+        background-position: 150% center;
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
+    }
+    50% {
+        filter: drop-shadow(0 0 16px rgba(255, 245, 160, 0.95)) drop-shadow(0 0 6px rgba(212, 175, 55, 0.9));
+    }
+    100% {
+        background-position: -150% center;
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
     }
 }
 
