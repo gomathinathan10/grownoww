@@ -44,8 +44,14 @@ const server = http.createServer((req, res) => {
         res.end('Server Error: ' + err.code);
       }
     } else {
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content, 'utf-8');
+      const headers = { 'Content-Type': contentType };
+      if (reqUrl.includes('favicon') || ext === '.ico') {
+        headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+        headers['Pragma'] = 'no-cache';
+        headers['Expires'] = '0';
+      }
+      res.writeHead(200, headers);
+      res.end(content);
     }
   });
 });
