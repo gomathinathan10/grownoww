@@ -610,7 +610,6 @@ $(document).ready(function() {
         currentPath.startsWith("/career") ||
         currentPath.startsWith("/enquiries") ||
         currentPath == "/contact" ||
-        currentPath == "/election-campaign" ||
         currentPath == "/crm" ||
         currentPath.includes("company-in")
     ) {
@@ -798,50 +797,6 @@ $(document).ready(function() {
             {
                 question: "10. How can I apply to become a GrownowW partner?",
                 answer: "You can apply directly through our website or contact our business development team. After an evaluation process, we guide you through the next steps to join our partner network.",
-            },
-        ];
-    }
-
-    if (currentPath == "/industrial-IoT") {
-        faqs = [{
-                question: "1. What is Industrial IoT (IIoT) as offered by GrownowW?",
-                answer: "We develop IIoT ecosystems using custom-built hardware and cloud-based analytics to enable smart manufacturing, real-time monitoring, and actionable insights.",
-            },
-            {
-                question: "2. What benefits can IIoT bring to manufacturing and industrial operations?",
-                answer: "Our IIoT solutions help reduce machine downtime by up to 50%, increase productivity by 20%, improve efficiency, and optimize resource utilization through smarter shop‑floor automation.",
-            },
-            {
-                question: "3. Which industries can leverage your IIoT solutions?",
-                answer: "We cater to diverse sectors including fleet management, power and equipment rental, supply chain, smart manufacturing, smart cities, environmental monitoring, and agriculture.",
-            },
-            {
-                question: "4. What specific improvements can IIoT provide in fleet management?",
-                answer: "IoT‑enabled fleet tracking can cut fuel consumption by up to 15%, slash maintenance costs by 30%, and improve operational efficiency by 25%.",
-            },
-            {
-                question: "5. How does IIoT support predictive maintenance and uptime optimization?",
-                answer: "IIoT analytics enable predictive maintenance, reducing downtime by up to 45% and lowering maintenance expenses by 10–40% through proactive issue detection.",
-            },
-            {
-                question: "6. What communication protocols and hardware platforms are supported?",
-                answer: "We work with standard industrial protocols such as RS‑232, RS‑485, SPI, CAN, Modbus, and cloud communication stacks including MQTT, TCP, WebSockets, HTTP(S). Supported microcontrollers include ARM, PIC, AT, with firmware built in Embedded C, Python, Arduino, and Raspberry Pi platforms.",
-            },
-            {
-                question: "7. Can IIoT help in supply chain and inventory management?",
-                answer: "Yes, real-time visibility via IIoT can reduce inventory holding costs by up to 25%, lower logistics costs by 10–20%, and decrease out-of-stock events by up to 50%, boosting sales by 5–10%.",
-            },
-            {
-                question: "8. How is precision agriculture enabled through your IIoT solutions?",
-                answer: "Through sensor-based environmental monitoring and drone integration, IIoT can boost crop yields by 10–20% and reduce water usage by 30%, improving yield and sustainability.",
-            },
-            {
-                question: "9. What is the process of deploying an IIoT solution with GrownowW?",
-                answer: "Our structured approach includes:\nDiscovery – Understand your production challenges and business vision\nPlanning – Define solution architecture and project milestones\nHardware & Software Development – Build custom IoT devices, firmware, and cloud integration\nTesting – Conduct rigorous quality assurance, simulation, and real-world validation\nLaunch & Monitoring – Deploy and maintain the system with analytics and continuous support.",
-            },
-            {
-                question: "10. What makes GrownowW’s IIoT service stand out?",
-                answer: "We follow an “IoT as a Service” model — delivering end-to-end support from custom hardware to cloud analytics, backed by over five years of experience in embedded systems, digital and software solutions. Our smart factory offerings are designed to scale across industries for measurable impact.",
             },
         ];
     }
