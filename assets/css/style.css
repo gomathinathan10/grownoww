@@ -434,10 +434,10 @@ h1 {
     width: auto;
     max-height: 58px;
     object-fit: contain;
-    border-radius: 6px;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    padding: 2px;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0;
 }
 
 .navbar .navbar-nav a {
@@ -2124,7 +2124,8 @@ article {
 
 .leader_ship_one {
     padding: 130px 50px 50px;
-    background: #0066ff;
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 50%, #2a2208 100%);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
     font-family: var(--menu-font);
 }
 
@@ -3232,10 +3233,10 @@ footer {
     max-width: 140px;
     height: auto;
     object-fit: contain;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    padding: 4px;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0;
 }
 
 .footer_menu .logo p {
