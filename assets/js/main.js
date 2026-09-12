@@ -715,15 +715,15 @@ $(document).ready(function() {
     if (currentPath == "/works") {
         faqs = [{
                 question: "1. What kind of projects does GrownowW showcase on the Works page?",
-                answer: "We display real-world examples of websites, mobile apps, ERP/custom software, branding and graphic design created for clients across industries like architecture, retail, job portals, food & dairy, financial services and more.",
+                answer: "We display real-world examples of AI platforms, hospital management systems, precision agriculture solutions, solar energy platforms, multi-vendor marketplaces, mobile apps, ERP systems, and branding solutions created for clients worldwide.",
             },
             {
                 question: "2. Which industries has GrownowW worked with?",
-                answer: "Clients include architecture & interior firms (Studio Emerge, Cabiinet Designs), cosmetics (Glam‑U), job portals (Madeus Jobs), dairy (Kovai Farms), ERP systems (RAC ERP, TOT Hygiene), among others.",
+                answer: "Clients include AI recruitment platforms (Noww.ai), healthcare & hospital systems (Carenoww), AgriTech (Cropengine), renewable energy (Solar Company), e-commerce marketplaces (Zhoppin), ERP solutions, and more.",
             },
             {
                 question: "3. What services were provided in these projects?",
-                answer: "Services span across responsive website development, native/cross‑platform mobile apps, ERP and custom software development, graphic & branding solutions like logos and brochures.",
+                answer: "Services span across responsive website development, AI-powered web applications, native/cross‑platform mobile apps, ERP and custom software development, and digital marketing solutions.",
             },
             {
                 question: "4. How many completed projects does GrownowW have so far?",
@@ -739,7 +739,7 @@ $(document).ready(function() {
             },
             {
                 question: "7. Can I request a case study or client reference from the Works page?",
-                answer: "Absolutely! You can ask for detailed case studies or client references for specific projects like Studio Emerge or Madeus Jobs via their contact form on the website.",
+                answer: "Absolutely! You can ask for detailed case studies or client references for specific projects like Noww.ai, Carenoww, Cropengine, or Zhoppin via their contact form on the website.",
             },
             {
                 question: "8. Do these showcased works include SEO and digital marketing support?",
