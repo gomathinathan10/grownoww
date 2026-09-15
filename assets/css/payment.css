@@ -1,0 +1,602 @@
+/* =======================================================
+   GrowNoww Technologies - Payment Portal Stylesheet
+   ======================================================= */
+
+.pay_page_wrapper {
+    background: #f8fafc;
+    min-height: 100vh;
+    padding-top: 110px;
+    padding-bottom: 80px;
+    font-family: var(--poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.pay_hero_section {
+    background: radial-gradient(circle at 20% 20%, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    padding: 60px 0 70px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -50px;
+}
+
+.pay_hero_section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pay_hero_badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #60a5fa;
+    margin-bottom: 18px;
+}
+
+.pay_hero_title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pay_hero_subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Mode Banner */
+.demo_mode_banner {
+    background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
+}
+
+.demo_mode_banner a {
+    color: #78350f;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Card Wrappers */
+.pay_card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    padding: 36px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.pay_card_header {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+.pay_card_header h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pay_card_header p {
+    font-size: 13.5px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Form Styles */
+.form_section_title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #3b82f6;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form_section_title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.pay_input_group {
+    margin-bottom: 20px;
+}
+
+.pay_label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.pay_label span.req {
+    color: #ef4444;
+}
+
+.pay_control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: #0f172a;
+    background: #ffffff;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.pay_control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.pay_control::placeholder {
+    color: #94a3b8;
+}
+
+/* Quick Amount Chips */
+.amount_chips_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.amount_chip {
+    flex: 1 1 calc(25% - 10px);
+    min-width: 90px;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+    background: #f8fafc;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.amount_chip:hover {
+    border-color: #93c5fd;
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.amount_chip.active {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #1d4ed8;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.custom_amount_input_wrapper {
+    position: relative;
+}
+
+.currency_prefix {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.custom_amount_input {
+    padding-left: 36px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+/* Payment Summary Card (Sticky Right) */
+.summary_card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary_header {
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.summary_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.summary_row.total_row {
+    border-top: 2px solid #e2e8f0;
+    padding-top: 16px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.total_price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1d4ed8;
+}
+
+/* Pay Button */
+.btn_secure_pay {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_secure_pay:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -5px rgba(37, 99, 235, 0.5);
+    color: #ffffff;
+}
+
+.btn_secure_pay:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Trust Badges */
+.trust_badges {
+    margin-top: 24px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+}
+
+.trust_badges_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trust_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #475569;
+}
+
+.trust_item i {
+    color: #10b981;
+    font-size: 15px;
+}
+
+.supported_methods_logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.payment_badge_tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* Success Modal */
+.receipt_modal_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(6px);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.receipt_modal_overlay.active {
+    display: flex;
+    animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.receipt_card {
+    background: #ffffff;
+    border-radius: 24px;
+    max-width: 520px;
+    width: 100%;
+    padding: 36px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.success_icon_wrapper {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #ecfdf5;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 20px;
+    border: 3px solid #a7f3d0;
+}
+
+.receipt_title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.receipt_subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.receipt_table {
+    width: 100%;
+    background: #f8fafc;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 13.5px;
+}
+
+.receipt_table .r_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.receipt_table .r_row:last-child {
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1d4ed8;
+}
+
+.receipt_table .r_label {
+    color: #64748b;
+}
+
+.receipt_table .r_val {
+    color: #0f172a;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.receipt_actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn_print_receipt {
+    flex: 1;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn_whatsapp_share {
+    flex: 1;
+    background: #25d366;
+    color: #ffffff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn_whatsapp_share:hover {
+    color: #ffffff;
+    background: #20b858;
+}
+
+.btn_close_receipt {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #f1f5f9;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+/* FAQ Section */
+.pay_faq_section {
+    margin-top: 60px;
+}
+
+.pay_faq_section h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq_accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq_item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq_question {
+    padding: 18px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #1e293b;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq_question i {
+    color: #64748b;
+    transition: transform 0.25s ease;
+}
+
+.faq_item.active .faq_question i {
+    transform: rotate(180deg);
+}
+
+.faq_answer {
+    display: none;
+    padding: 0 24px 20px;
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.faq_item.active .faq_answer {
+    display: block;
+}
+
+/* Print Only Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .receipt_modal_overlay,
+    .receipt_card,
+    .receipt_card * {
+        visibility: visible;
+    }
+    .receipt_modal_overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #ffffff;
+        padding: 0;
+    }
+    .receipt_actions, .btn_close_receipt {
+        display: none !important;
+    }
+}

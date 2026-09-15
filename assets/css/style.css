@@ -6538,3 +6538,40 @@ section.partners-details-section::before {
         padding: 25px 18px;
     }
 }
+
+/* Pay Online Navbar Button */
+.nav_btn_pay {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0052cc 0%, #0d6efd 100%);
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: var(--poppins);
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(13, 110, 253, 0.35);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    margin-right: 15px;
+    letter-spacing: 0.3px;
+}
+.nav_btn_pay:hover {
+    background: linear-gradient(135deg, #0d6efd 0%, #0041a8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    color: #ffffff !important;
+}
+.nav_btn_pay i {
+    font-size: 14px;
+    color: #4ade80;
+}
+@media (max-width: 991px) {
+    .nav_btn_pay {
+        margin-right: 10px;
+        padding: 6px 14px;
+        font-size: 12.5px;
+    }
+}

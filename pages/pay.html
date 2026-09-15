@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Online | Fast & Secure Payment Portal - GrowNoww Technologies</title>
+    <meta name="description" content="Make secure online payments for GrowNoww services, project milestones, and invoices via UPI, Cards, and NetBanking. Powered by Razorpay.">
+    <meta name="keywords" content="Pay GrowNoww, online payment, Razorpay Grownoww, invoice payment, advance payment">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=grownoww">
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/logo/favicon.png?v=grownoww">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logo/favicon.png?v=grownoww">
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png?v=grownoww">
+
+    <!--- Main CSS Files --->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/crm_style.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/animation.css">
+
+    <!---- Bootstrap Link ---->
+    <link rel="stylesheet" href="../assets/css/bootstrap_css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!--- Dedicated Payment Portal CSS --->
+    <link rel="stylesheet" href="../assets/css/payment.css">
+
+    <!--- Jquery --->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <!--- Razorpay Official Checkout SDK --->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body class="body">
+
+    <a href="contact.html#Get_in_Touch">
+        <div class="fixed_quote">Get Quote</div>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=919361878047" target="_blank">
+        <div class="floating_whatsapp"><i class="fab fa-whatsapp"></i></div>
+    </a>
+    <a href="tel:919361878047" target="_blank">
+        <div class="floating_call"><i class="fas fa-phone-alt"></i></div>
+    </a>
+
+    <!-- Header Navigation -->
+    <section class="menu_section">
+        <div class="fixed_header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="../assets/images/logo/grownoww_logo_transparent.png" alt="GrownowW Logo" class="brand-logo-img">
+                                </a>
+                                
+                                <div class="nav_right_actions d-flex align-items-center ms-auto order-lg-3">
+                                    <a href="pay.html" class="nav_btn_pay">
+                                        <i class="fas fa-shield-alt"></i> Pay Online
+                                    </a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                                    </button>
+                                </div>
+
+                                <div class="collapse navbar-collapse order-lg-2 ms-5" id="navbarNavAltMarkup" style="display:block;height:0">
+                                    <div class="navbar-nav">
+                                        <a class="nav-link main_menu" href="services.html">Services</a>
+                                        <a class="nav-link main_menu" href="works.html">Work</a>
+                                        <a class="nav-link main_menu" href="aboutus.html">About Us</a>
+                                        <a class="nav-link main_menu" href="partners.html">Partners</a>
+                                        <a class="nav-link main_menu" href="careers.html">Careers</a>
+                                        <a class="nav-link main_menu" href="contact.html">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Hero Section -->
+    <div class="pay_hero_section text-center">
+        <div class="container">
+            <div class="pay_hero_badge">
+                <i class="fas fa-lock"></i> 256-Bit SSL Encrypted & Razorpay Secured
+            </div>
+            <h1 class="pay_hero_title">Fast & Secure Online Payment</h1>
+            <p class="pay_hero_subtitle">
+                Pay your project invoices, advance deposits, and service milestones instantly via UPI, Credit/Debit Cards, NetBanking, or Digital Wallets.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Payment Container -->
+    <main class="pay_page_wrapper">
+        <div class="container">
+            
+            <!-- Sandbox / Demo Notice if in Demo Mode -->
+            <div id="demoModeNotice" class="demo_mode_banner" style="display: none;">
+                <div>
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Sandbox / Test Mode Active:</strong> You can test payment simulation freely. To connect your live Razorpay account, enter your keys in <code>config/payment.js</code>.
+                </div>
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">Demo Mode</span>
+            </div>
+
+            <div class="row g-4">
+                <!-- Left: Payment Form -->
+                <div class="col-lg-7 col-xl-8">
+                    <div class="pay_card">
+                        <div class="pay_card_header">
+                            <h4><i class="fas fa-credit-card text-primary"></i> Payment Details</h4>
+                            <p>Enter your details and invoice information below to continue.</p>
+                        </div>
+
+                        <form id="paymentForm" onsubmit="event.preventDefault(); initiatePayment();">
+                            
+                            <!-- Section 1: Customer Details -->
+                            <div class="form_section_title">
+                                <i class="fas fa-user"></i> Client Information
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Full Name <span class="req">*</span></label>
+                                        <input type="text" id="clientName" class="pay_control" placeholder="e.g. Rajesh Kumar" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Email Address <span class="req">*</span></label>
+                                        <input type="email" id="clientEmail" class="pay_control" placeholder="client@company.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Mobile Number <span class="req">*</span></label>
+                                        <input type="tel" id="clientPhone" class="pay_control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Company / Brand (Optional)</label>
+                                        <input type="text" id="clientCompany" class="pay_control" placeholder="e.g. Acme Corp">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 2: Service & Invoice Details -->
+                            <div class="form_section_title">
+                                <i class="fas fa-briefcase"></i> Service & Invoice Details
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-7">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Purpose of Payment <span class="req">*</span></label>
+                                        <select id="paymentPurpose" class="pay_control" required onchange="updateSummary()">
+                                            <option value="Website Development Advance">Website Design & Development Advance</option>
+                                            <option value="Mobile App Development">Mobile App (Android / iOS) Milestone</option>
+                                            <option value="Custom Software / CRM Development">Custom Software / CRM Development</option>
+                                            <option value="Digital Marketing & SEO Package">Digital Marketing & SEO Package</option>
+                                            <option value="UI/UX & Graphic Design">UI/UX & Graphic Design Services</option>
+                                            <option value="Domain, Hosting & Cloud Support">Domain, Hosting & Cloud Support</option>
+                                            <option value="Maintenance & AMC Retainer">Maintenance & AMC Retainer</option>
+                                            <option value="Final Invoice Settlement">Final Invoice Settlement</option>
+                                            <option value="Custom Project Payment">Other Custom Project Payment</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="pay_input_group mb-0">
+                                        <label class="pay_label">Invoice / Quote # (Optional)</label>
+                                        <input type="text" id="invoiceNumber" class="pay_control" placeholder="e.g. INV-2026-089">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 3: Amount Selection -->
+                            <div class="form_section_title">
+                                <i class="fas fa-coins"></i> Amount to Pay
+                            </div>
+                            <div class="mb-4">
+                                <label class="pay_label">Choose Quick Amount or Enter Custom Value <span class="req">*</span></label>
+                                <div class="amount_chips_container">
+                                    <div class="amount_chip active" onclick="setQuickAmount(5000, this)">₹5,000</div>
+                                    <div class="amount_chip" onclick="setQuickAmount(10000, this)">₹10,000</div>
+                                    <div class="amount_chip" onclick="setQuickAmount(25000, this)">₹25,000</div>
+                                    <div class="amount_chip" onclick="setQuickAmount(50000, this)">₹50,000</div>
+                                </div>
+                                <div class="custom_amount_input_wrapper">
+                                    <span class="currency_prefix">₹</span>
+                                    <input type="number" id="customAmount" class="pay_control custom_amount_input" value="5000" min="10" step="1" required oninput="handleCustomAmountInput(this.value)">
+                                </div>
+                                <small class="text-muted mt-2 d-block">All transactions are processed in INR (₹). Standard taxes apply as per invoice.</small>
+                            </div>
+
+                            <!-- Section 4: Notes -->
+                            <div class="pay_input_group mb-4">
+                                <label class="pay_label">Remarks / Additional Notes (Optional)</label>
+                                <textarea id="paymentNotes" class="pay_control" rows="2" placeholder="Any specific instructions or notes for this payment..."></textarea>
+                            </div>
+
+                            <!-- Mobile Pay Button -->
+                            <div class="d-lg-none mt-4">
+                                <button type="submit" id="btnSubmitMobile" class="btn_secure_pay">
+                                    <i class="fas fa-lock"></i> Proceed to Pay <span id="mobileBtnAmount">₹5,000</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Sticky Order Summary & Pay Button -->
+                <div class="col-lg-5 col-xl-4">
+                    <div class="summary_card">
+                        <div class="summary_header">
+                            <h5 class="fw-bold mb-1"><i class="fas fa-receipt text-primary me-2"></i> Payment Summary</h5>
+                            <small class="text-muted">GrownowW Technologies Official Gateway</small>
+                        </div>
+
+                        <div class="summary_row">
+                            <span>Service:</span>
+                            <strong id="sumPurpose" class="text-dark text-end" style="max-width: 60%;">Website Development Advance</strong>
+                        </div>
+                        <div class="summary_row">
+                            <span>Currency:</span>
+                            <span class="badge bg-light text-dark border">INR (₹)</span>
+                        </div>
+                        <div class="summary_row">
+                            <span>Subtotal:</span>
+                            <strong id="sumSubtotal">₹5,000.00</strong>
+                        </div>
+                        <div class="summary_row">
+                            <span>Gateway Fee:</span>
+                            <span class="text-success fw-bold">FREE (0%)</span>
+                        </div>
+
+                        <div class="summary_row total_row">
+                            <span>Total Payable:</span>
+                            <span class="total_price" id="sumTotal">₹5,000</span>
+                        </div>
+
+                        <button type="button" id="btnSubmitDesktop" class="btn_secure_pay" onclick="initiatePayment()">
+                            <i class="fas fa-lock"></i> Proceed to Pay <span id="desktopBtnAmount">₹5,000</span>
+                        </button>
+
+                        <div class="supported_methods_logos">
+                            <span class="payment_badge_tag"><i class="fab fa-google-pay text-primary"></i> GPay</span>
+                            <span class="payment_badge_tag"><i class="fas fa-mobile-alt text-purple"></i> PhonePe</span>
+                            <span class="payment_badge_tag"><i class="fas fa-wallet text-info"></i> Paytm</span>
+                            <span class="payment_badge_tag"><i class="fas fa-qrcode text-dark"></i> UPI QR</span>
+                            <span class="payment_badge_tag"><i class="fas fa-credit-card text-success"></i> Cards</span>
+                            <span class="payment_badge_tag"><i class="fas fa-university text-secondary"></i> NetBanking</span>
+                        </div>
+
+                        <div class="trust_badges">
+                            <ul class="trust_badges_list">
+                                <li class="trust_item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Verified Merchant: GrownowW Technologies</span>
+                                </li>
+                                <li class="trust_item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>PCI-DSS Level 1 Compliant Checkout</span>
+                                </li>
+                                <li class="trust_item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Instant digital receipt & GST tax invoice</span>
+                                </li>
+                                <li class="trust_item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>24/7 Priority client billing support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="pay_faq_section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq_accordion">
+                    <div class="faq_item active">
+                        <div class="faq_question" onclick="toggleFaq(this)">
+                            <span>Which payment methods are accepted?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq_answer">
+                            We accept all major payment methods across India and internationally, including UPI (Google Pay, PhonePe, Paytm, BHIM), Credit Cards (Visa, MasterCard, RuPay, Diners), Debit Cards, NetBanking across 50+ banks, and corporate credit cards.
+                        </div>
+                    </div>
+
+                    <div class="faq_item">
+                        <div class="faq_question" onclick="toggleFaq(this)">
+                            <span>Is my payment transaction secure?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq_answer">
+                            Yes, absolutely. All payments are encrypted using bank-grade 256-bit SSL encryption and routed directly through Razorpay, a certified PCI-DSS Level 1 compliant payment gateway. GrowNoww does not store any sensitive card numbers or PINs.
+                        </div>
+                    </div>
+
+                    <div class="faq_item">
+                        <div class="faq_question" onclick="toggleFaq(this)">
+                            <span>Will I receive an official receipt or GST invoice?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq_answer">
+                            Yes! Immediately upon payment completion, you can view and download your official digital transaction receipt. Our accounts team will also issue an official GST tax invoice directly to your registered billing email within 24 hours.
+                        </div>
+                    </div>
+
+                    <div class="faq_item">
+                        <div class="faq_question" onclick="toggleFaq(this)">
+                            <span>Can I pay for custom milestones or retainers?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq_answer">
+                            Yes. You can enter any custom amount in the input box corresponding to your agreed project proposal or milestone quote, select your service, and add your invoice/reference number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Payment Success / Receipt Modal -->
+    <div id="receiptModal" class="receipt_modal_overlay">
+        <div class="receipt_card">
+            <button class="btn_close_receipt" onclick="closeReceipt()"><i class="fas fa-times"></i></button>
+            <div class="success_icon_wrapper">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="receipt_title">Payment Successful!</h3>
+            <p class="receipt_subtitle">Thank you for your payment to GrowNoww Technologies.</p>
+
+            <div class="receipt_table">
+                <div class="r_row">
+                    <span class="r_label">Receipt #:</span>
+                    <span class="r_val" id="recNumber">GNW-000000</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Transaction ID:</span>
+                    <span class="r_val" id="recTxnId">pay_demo12345</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Client Name:</span>
+                    <span class="r_val" id="recClientName">-</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Service:</span>
+                    <span class="r_val" id="recPurpose">-</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Date & Time:</span>
+                    <span class="r_val" id="recDate">-</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Status:</span>
+                    <span class="badge bg-success text-white">CAPTURED / CONFIRMED</span>
+                </div>
+                <div class="r_row">
+                    <span class="r_label">Amount Paid:</span>
+                    <span class="r_val" id="recAmount">₹0.00</span>
+                </div>
+            </div>
+
+            <div class="receipt_actions">
+                <button type="button" class="btn_print_receipt" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <a id="btnWhatsappShare" href="#" target="_blank" class="btn_whatsapp_share">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer_menu mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-3 logo">
+                    <div>
+                        <div class="footer_logo">
+                            <a href="index.html">
+                                <img src="../assets/images/logo/grownoww_logo_transparent.png" class="img-fluid brand-logo-img-footer" alt="GrownowW Logo">
+                            </a>
+                        </div>
+                        <p class="text-muted mt-3" style="font-size: 13.5px; line-height: 1.6;">
+                            GrowNoww delivers state-of-the-art web, mobile, and software solutions designed to scale your business.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 menu">
+                    <div class="footer_navbar">
+                        <h6>QUICK LINKS</h6>
+                        <ul>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="works.html">Work</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                            <li><a href="pay.html">Pay Online</a></li>
+                            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 menu">
+                    <div class="footer_navbar">
+                        <h6>SERVICES</h6>
+                        <ul>
+                            <li><a href="mobile-app.html">Mobile App Development</a></li>
+                            <li><a href="web-development.html">Website Development</a></li>
+                            <li><a href="customsoftware.html">Customized Softwares</a></li>
+                            <li><a href="graphic-design.html">Graphic Design</a></li>
+                            <li><a href="crm.html">CRM Development</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 touch last-div">
+                    <div>
+                        <h6>BILLING & SUPPORT</h6>
+                        <div class="phone d-flex mt-2">
+                            <div class="icon"><img src="../assets/images/footer/phone.svg" alt="Phone"></div>
+                            <a href="tel:9994713122"><div class="content"><b>Billing:</b> +91 99947 13122</div></a>
+                        </div>
+                        <div class="email d-flex mt-2">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <a href="mailto:info@grownoww.com"><div class="content">info@grownoww.com</div></a>
+                        </div>
+                        <div class="footer_quote mt-3">
+                            <a href="contact.html#Get_in_Touch"><button>Contact Us</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section class="bottom-footer">
+        <p class="footer-copy">
+            Copyright © <script>document.write(new Date().getFullYear())</script> 
+            <a href="index.html" class="footer-rights">GrownowW Technologies</a>. All Rights Reserved.
+        </p>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="../assets/js/bootstrap_js/bootstrap.js"></script>
+
+    <!-- Payment Logic Script -->
+    <script>
+        let currentAmount = 5000;
+        let paymentGatewayConfig = null;
+
+        // Fetch Gateway Config on Load
+        async function fetchPaymentConfig() {
+            try {
+                const res = await fetch('/api/payment-config');
+                const data = await res.json();
+                if (data.success) {
+                    paymentGatewayConfig = data;
+                    if (data.isDemo) {
+                        const notice = document.getElementById('demoModeNotice');
+                        if (notice) notice.style.display = 'flex';
+                    }
+                }
+            } catch (err) {
+                console.warn('Could not load payment config, defaulting:', err);
+            }
+        }
+        fetchPaymentConfig();
+
+        function setQuickAmount(amount, elem) {
+            document.querySelectorAll('.amount_chip').forEach(c => c.classList.remove('active'));
+            if (elem) elem.classList.add('active');
+            currentAmount = amount;
+            document.getElementById('customAmount').value = amount;
+            updateSummary();
+        }
+
+        function handleCustomAmountInput(val) {
+            document.querySelectorAll('.amount_chip').forEach(c => c.classList.remove('active'));
+            const num = parseFloat(val) || 0;
+            currentAmount = num;
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const formatted = '₹' + Number(currentAmount).toLocaleString('en-IN');
+            const purpose = document.getElementById('paymentPurpose').value;
+
+            document.getElementById('sumPurpose').textContent = purpose;
+            document.getElementById('sumSubtotal').textContent = formatted;
+            document.getElementById('sumTotal').textContent = formatted;
+            document.getElementById('desktopBtnAmount').textContent = formatted;
+            const mobBtn = document.getElementById('mobileBtnAmount');
+            if (mobBtn) mobBtn.textContent = formatted;
+        }
+
+        function toggleFaq(elem) {
+            const item = elem.parentElement;
+            item.classList.toggle('active');
+        }
+
+        async function initiatePayment() {
+            const form = document.getElementById('paymentForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            if (!currentAmount || currentAmount < 10) {
+                alert('Please enter a valid payment amount of at least ₹10.');
+                return;
+            }
+
+            const name = document.getElementById('clientName').value.trim();
+            const email = document.getElementById('clientEmail').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const purpose = document.getElementById('paymentPurpose').value;
+            const invoiceNumber = document.getElementById('invoiceNumber').value.trim();
+            const notes = document.getElementById('paymentNotes').value.trim();
+
+            const btnDesktop = document.getElementById('btnSubmitDesktop');
+            const btnMobile = document.getElementById('btnSubmitMobile');
+            
+            setLoading(true);
+
+            try {
+                // 1. Create order on server
+                const orderRes = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: currentAmount,
+                        currency: 'INR',
+                        purpose: purpose,
+                        invoiceNumber: invoiceNumber,
+                        customer: { name, email, phone, notes }
+                    })
+                });
+
+                const orderData = await orderRes.json();
+                if (!orderData.success) {
+                    throw new Error(orderData.message || 'Failed to initialize payment.');
+                }
+
+                // If in demo mode and Razorpay Checkout SDK isn't loaded or runs in mock
+                if (orderData.isDemo) {
+                    simulateDemoPayment(orderData, { name, email, phone, purpose, invoiceNumber });
+                    setLoading(false);
+                    return;
+                }
+
+                // 2. Open standard Razorpay Checkout
+                const options = {
+                    key: orderData.keyId,
+                    amount: orderData.amount,
+                    currency: orderData.currency,
+                    name: orderData.company.name || 'GrownowW Technologies',
+                    description: purpose,
+                    image: '../assets/images/logo/favicon.png',
+                    order_id: orderData.orderId,
+                    prefill: {
+                        name: name,
+                        email: email,
+                        contact: phone
+                    },
+                    notes: {
+                        purpose: purpose,
+                        invoice_number: invoiceNumber
+                    },
+                    theme: {
+                        color: '#0052cc'
+                    },
+                    handler: async function (response) {
+                        // 3. Verify on server
+                        await verifyPaymentOnServer({
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_signature: response.razorpay_signature,
+                            amount: currentAmount,
+                            currency: 'INR',
+                            customer: { name, email, phone },
+                            purpose: purpose,
+                            invoiceNumber: invoiceNumber
+                        });
+                    },
+                    modal: {
+                        ondismiss: function () {
+                            setLoading(false);
+                        }
+                    }
+                };
+
+                const rzp = new Razorpay(options);
+                rzp.on('payment.failed', function (response) {
+                    alert('Payment failed: ' + response.error.description);
+                    setLoading(false);
+                });
+                rzp.open();
+                setLoading(false);
+
+            } catch (err) {
+                console.error(err);
+                alert('Payment error: ' + err.message);
+                setLoading(false);
+            }
+        }
+
+        async function verifyPaymentOnServer(payload) {
+            setLoading(true);
+            try {
+                const res = await fetch('/api/verify-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                setLoading(false);
+
+                if (data.success && data.receipt) {
+                    showReceiptModal(data.receipt);
+                } else {
+                    alert('Verification note: ' + (data.message || 'Could not verify payment.'));
+                }
+            } catch (err) {
+                setLoading(false);
+                alert('Verification request failed. Please contact billing support with payment ID: ' + payload.razorpay_payment_id);
+            }
+        }
+
+        // Demo payment simulation with instant mock approval
+        function simulateDemoPayment(orderData, clientInfo) {
+            const confirmed = confirm(`[Sandbox Mode] Confirm simulated payment of ₹${currentAmount.toLocaleString('en-IN')} for ${clientInfo.purpose}?`);
+            if (!confirmed) return;
+
+            const mockPaymentId = `pay_mock_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+            verifyPaymentOnServer({
+                razorpay_payment_id: mockPaymentId,
+                razorpay_order_id: orderData.orderId,
+                razorpay_signature: 'demo_valid_sig',
+                amount: currentAmount,
+                currency: 'INR',
+                customer: { name: clientInfo.name, email: clientInfo.email, phone: clientInfo.phone },
+                purpose: clientInfo.purpose,
+                invoiceNumber: clientInfo.invoiceNumber
+            });
+        }
+
+        function showReceiptModal(receipt) {
+            document.getElementById('recNumber').textContent = receipt.receiptNumber || 'GNW-REC';
+            document.getElementById('recTxnId').textContent = receipt.paymentId || 'N/A';
+            document.getElementById('recClientName').textContent = receipt.customer?.name || 'Valued Client';
+            document.getElementById('recPurpose').textContent = receipt.purpose || 'Services';
+            document.getElementById('recDate').textContent = new Date(receipt.paidAt || Date.now()).toLocaleString();
+            document.getElementById('recAmount').textContent = '₹' + Number(receipt.amount).toLocaleString('en-IN');
+
+            const shareText = encodeURIComponent(
+                `Hi GrowNoww Team, I have successfully completed an online payment of ₹${receipt.amount} for "${receipt.purpose}". Receipt Number: ${receipt.receiptNumber}, Txn ID: ${receipt.paymentId}. Please confirm.`
+            );
+            document.getElementById('btnWhatsappShare').href = `https://api.whatsapp.com/send?phone=919994713122&text=${shareText}`;
+
+            document.getElementById('receiptModal').classList.add('active');
+        }
+
+        function closeReceipt() {
+            document.getElementById('receiptModal').classList.remove('active');
+        }
+
+        function setLoading(isLoading) {
+            const btnD = document.getElementById('btnSubmitDesktop');
+            const btnM = document.getElementById('btnSubmitMobile');
+            if (isLoading) {
+                if (btnD) { btnD.disabled = true; btnD.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...'; }
+                if (btnM) { btnM.disabled = true; btnM.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...'; }
+            } else {
+                updateSummary();
+                if (btnD) { btnD.disabled = false; }
+                if (btnM) { btnM.disabled = false; }
+            }
+        }
+    </script>
+
+</body>
+</html>

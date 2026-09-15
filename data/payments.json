@@ -1,0 +1,18 @@
+[
+  {
+    "paymentId": "pay_test_12345",
+    "orderId": "order_demo_123",
+    "receiptNumber": "GNW-MU2IQNWB-2352",
+    "amount": 5000,
+    "currency": "INR",
+    "customer": {
+      "name": "Test Client",
+      "email": "test@example.com",
+      "phone": "9999999999"
+    },
+    "purpose": "Web Development Advance",
+    "invoiceNumber": "N/A",
+    "status": "SUCCESS",
+    "paidAt": "2026-09-15T10:18:09.659Z"
+  }
+]
