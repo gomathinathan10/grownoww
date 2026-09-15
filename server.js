@@ -25,12 +25,24 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURI(req.url.split('?')[0]);
-  if (reqUrl === '/') reqUrl = '/index.html';
+  if (reqUrl === '/') reqUrl = '/pages/index.html';
+
+  // Handle requests where relative ../assets was resolved as /pages/assets/
+  if (reqUrl.startsWith('/pages/assets/')) {
+    reqUrl = reqUrl.replace(/^\/pages/, '');
+  }
 
   let filePath = path.join(__dirname, reqUrl);
   
-  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
-    filePath = filePath + '.html';
+  if (!fs.existsSync(filePath)) {
+    const pagesPath = path.join(__dirname, 'pages', reqUrl);
+    if (fs.existsSync(pagesPath)) {
+      filePath = pagesPath;
+    } else if (fs.existsSync(pagesPath + '.html')) {
+      filePath = pagesPath + '.html';
+    } else if (fs.existsSync(filePath + '.html')) {
+      filePath = filePath + '.html';
+    }
   }
 
   const ext = path.extname(filePath).toLowerCase();

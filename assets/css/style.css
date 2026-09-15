@@ -1280,7 +1280,7 @@ article {
 }
 
 .our_process {
-    background-image: url(../images/home/our_process/bg.png);
+    background-image: none !important;
     background-position: center;
     background-size: 50% 80%;
     background-repeat: no-repeat;
@@ -4178,17 +4178,13 @@ input:checked+.slider:before {
 }
 
 .mapboxgl-marker {
-    background-image: url(/assets/images/loc.gif);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    background-image: none !important;
     cursor: pointer;
     z-index: 5;
 }
 
 #map svg {
-    display: none;
+    display: block;
 }
 
 #map::after {
@@ -4199,6 +4195,7 @@ input:checked+.slider:before {
     width: 100%;
     mix-blend-mode: saturation;
     z-index: 3;
+    pointer-events: none;
 }
 
 .custom_soft {
