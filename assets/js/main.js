@@ -701,7 +701,7 @@ $(document).ready(function() {
             },
             {
                 question: "9. Where is GrownowW located and do you have branches?",
-                answer: "Their head office is in Coimbatore, Tamil Nadu, with branches in Salem (Tamil Nadu) and Milton Keynes, UK.",
+                answer: "Their headquarters is located at Balabackiya nagar, Tachanallur, Tirunelveli, Tamil Nadu, India.",
             },
             {
                 question: "10. How can I get started or get a quote?",
@@ -730,8 +730,8 @@ $(document).ready(function() {
                 answer: "As of today, GrownowW has delivered over 400 professional websites and mobile apps since 2018.",
             },
             {
-                question: "5. Does GrownowW work on projects outside Coimbatore?",
-                answer: "Yes, they have expanded to serve clients beyond Coimbatore, including through their branch in Salem, Tamil Nadu, and globally with a UK branch in Milton Keynes.",
+                question: "5. Does GrownowW work on projects outside Tirunelveli?",
+                answer: "Yes, they serve clients across Tamil Nadu, India, and internationally with cutting-edge web, mobile, and software solutions.",
             },
             {
                 question: "6. What is the process behind these showcased projects?",
@@ -752,51 +752,6 @@ $(document).ready(function() {
             {
                 question: "10. How can I collaborate with GrownowW on a similar project?",
                 answer: "You can initiate collaboration by filling out the “Get a Quote” form or “Contact Us” section, sharing your idea, discussing timelines and budget—and they’ll guide you through consultation to launch.",
-            },
-        ];
-    }
-
-    // partners page faq
-    if (currentPath == "/partners") {
-        faqs = [{
-                question: "1. What is the minimum investment required to become a GrownowW partner?",
-                answer: "The minimum investment to become a GrownowW partner is ₹12 lakhs per office, which includes office setup and initial operational expenses.",
-            },
-            {
-                question: "2. Does GrownowW help in setting up the office?",
-                answer: "Yes, we provide complete assistance in office setup, including branding, infrastructure guidance, and operational support to ensure your branch is ready for business.",
-            },
-            {
-                question: "3. Can I open a GrownowW partner office in any location?",
-                answer: "Yes, our partner model allows you to set up your office anywhere in India, subject to availability and market potential in your chosen area.",
-            },
-            {
-                question: "4. What kind of business leads will I receive as a partner?",
-                answer: "We provide qualified leads for IT services, software solutions, and digital transformation projects, helping you start business operations quickly.",
-            },
-            {
-                question: "5. What benefits do partners receive apart from leads?",
-                answer: "As a partner, you gain profit-sharing opportunities, branding support, marketing assistance, training programs, and priority access to new projects.",
-            },
-            {
-                question: "6. Is prior IT or business experience required to become a partner?",
-                answer: "While prior experience is helpful, it is not mandatory. GrownowW provides full guidance, training, and operational support to help you succeed.",
-            },
-            {
-                question: "7. How is revenue shared between GrownowW and the partner?",
-                answer: "Revenue is shared on a mutually agreed profit-sharing model, ensuring a win-win situation for both the company and the partner.",
-            },
-            {
-                question: "8. Will GrownowW provide marketing and promotional support?",
-                answer: "Yes, we provide digital marketing support, promotional materials, and brand campaigns to help generate leads and grow your local presence.",
-            },
-            {
-                question: "9. How long does it take to start operations after signing up as a partner?",
-                answer: "Typically, a partner office can start operations within 30-45 days after the agreement, depending on location readiness and setup.",
-            },
-            {
-                question: "10. How can I apply to become a GrownowW partner?",
-                answer: "You can apply directly through our website or contact our business development team. After an evaluation process, we guide you through the next steps to join our partner network.",
             },
         ];
     }
@@ -844,4 +799,15 @@ $(document).ready(function() {
             );
         }
     }
+
+    // Smooth scroll for services page scroll down button
+    $(document).on("click", ".service_title .scroll_down, #service_scroll_down, .scroll_down_link", function(e) {
+        e.preventDefault();
+        const $target = $("#services_section").length ? $("#services_section") : $(".website_section");
+        if ($target.length) {
+            $("html, body").stop().animate({
+                scrollTop: $target.offset().top - 90
+            }, 600);
+        }
+    });
 });

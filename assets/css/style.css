@@ -2053,6 +2053,20 @@ article {
     position: relative;
     text-align: center;
     margin-bottom: 3%;
+    cursor: pointer;
+}
+
+.service_title .scroll_down {
+    min-height: 80px;
+    margin-top: 15px;
+}
+
+.service_title .scroll_down a.scroll_down_link {
+    display: inline-block;
+    width: 60px;
+    height: 70px;
+    position: relative;
+    cursor: pointer;
 }
 
 .work_section .scroll_down .mouse,
@@ -2064,11 +2078,19 @@ article {
     position: absolute;
     top: calc(50% - 50px);
     left: calc(50% - 20px);
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service_title .scroll_down .mouse {
     top: calc(50% + 0px);
     left: calc(50% - 20px);
+}
+
+.service_title .scroll_down:hover .mouse {
+    border-color: #0052cc;
+    transform: translateY(5px);
+    box-shadow: 0 6px 16px rgba(0, 82, 204, 0.25);
 }
 
 .mouse:before,

@@ -15,8 +15,8 @@ module.exports = {
     tagline: 'Delivering Next-Gen Web, App & Software Solutions',
     logo: '../assets/images/logo/favicon.png',
     themeColor: '#0052cc',
-    supportPhone: '+91 99947 13122',
-    supportEmail: 'info@grownoww.com',
+    supportPhone: '+91 6382988134',
+    supportEmail: 'hello@grownoww.com',
     currency: 'INR'
   },
 

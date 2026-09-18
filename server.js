@@ -283,6 +283,10 @@ const server = http.createServer(async (req, res) => {
   // ===== STATIC FILE SERVING =====
   if (reqUrl === '/') reqUrl = '/pages/index.html';
   if (reqUrl === '/pay' || reqUrl === '/payment') reqUrl = '/pages/pay.html';
+  if (reqUrl === '/partners' || reqUrl === '/partners.html' || reqUrl === '/pages/partners.html') {
+    res.writeHead(301, { 'Location': '/pages/services.html' });
+    return res.end();
+  }
 
   // Handle requests where relative ../assets was resolved as /pages/assets/
   if (reqUrl.startsWith('/pages/assets/')) {
